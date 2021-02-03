@@ -1,0 +1,9 @@
+{
+    "Welcome to React": "Bienvenido a React y react-i18next",
+    "Welcome to Other thing...": "Bienvenido a Otra cosa ...",
+    "Next Page": "Siguiente página",
+    "/otherthing": "/es/otherthing",
+    "Multilingual React App": "Aplicación React multilingüe",
+    "description": "descripción",
+    "This is a Multilingual website using react-dom-router, react-redux and i18n": "Este es un sitio web multilingüe que utiliza react-dom-router, react-redux e i18n"
+  }

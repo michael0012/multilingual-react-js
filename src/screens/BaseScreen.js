@@ -5,7 +5,7 @@ import HeadTranslator from '../components/HeadTranslator';
 const BaseScreen = (props) => {
 
     return (
-        <div style={{height: '100vh', postition: 'relative'}}>
+        <div style={{postition: 'relative'}}>
             {props.children}
             <ChangeLang/>
             <HeadTranslator/>

@@ -8,7 +8,7 @@ const Welcome = (props) => {
 
     return (
         <BaseScreen>
-            <div style={{height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+            <div style={{height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                 <div style={{textAlign: 'center'}}>
                     <h1>{t('Welcome to React')}</h1>
                     <div style={{margin: '12px auto'}}>

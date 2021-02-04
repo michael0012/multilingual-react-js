@@ -21,9 +21,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 let Routing = (props) => {
     const lang = window.location.pathname.split('/')[1];
-    // TODO: add modual for choosing languages
     let selectingLang = false;
-    console.log({language: props.language, selected: props.selected});
+    //console.log({language: props.language, selected: props.selected});
     if(!languages.includes(lang) || !props.selected){
       selectingLang = true;
     }
@@ -41,6 +40,7 @@ let Routing = (props) => {
         <Route exact path="/:lang([a-z]{2})/" component={Welcome}/>
         {
             // the two routes above should have the same component
+            // the routes below must have paths that start with /:lang([a-z]{2})/ inorder for template to work.
         }
         <Route exact path="/:lang([a-z]{2})/otherthing" component={Otherpage} />
       </React.Fragment>

@@ -7,7 +7,7 @@ const Otherpage = (props) => {
     
     return (
         <BaseScreen>
-            <div style={{height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+            <div style={{height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                 <h1 style={{textAlign: 'center'}}>{t('Welcome to Other thing...')}</h1>
             </div>
         </BaseScreen>

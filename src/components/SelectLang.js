@@ -26,7 +26,7 @@ const SelectLang = (props) => {
         titleIndex: 0,
     });
     const endOfLoop = () => {
-        // setTimeout(()=>{}, 500);
+        
         if(state.titleIndex >= languages.length - 1){
             setState((state, props) =>{
                 return {
@@ -43,30 +43,7 @@ const SelectLang = (props) => {
             });
         }
     };
-    /*
-    useEffect(() => {
-        let timeoutHolder = setTimeout(() => {
-            if(state.titleIndex >= languages.length - 1){
-                setState((state, props) =>{
-                    return {
-                        ...state,
-                        titleIndex: 0,
-                    };
-                });
-            }else{
-                setState((state, props) => {
-                    return {
-                        ...state,
-                        titleIndex: state.titleIndex + 1,
-                    };
-                });
-            }
-        }, 3000)
-        return () => {
-            clearTimeout(timeoutHolder);
-        }
-    }, [state]);
-    */
+    
     const selectingLang = (lang) => ( () => {
         props.changeLang(lang);
         i18n.changeLanguage(lang);
@@ -83,13 +60,13 @@ const SelectLang = (props) => {
     });
 
     return(
-        <div className="modal">
-            <div className="modal-content">
+        <div className="language-selection-modal">
+            <div className="language-selection-modal-content">
                 <h1 className="fade-out" onAnimationIteration={endOfLoop} style={{textAlign: "center", height: 60}}>{selectLanguages[state.titleIndex]}</h1>
-                <div className="modal-holder">
-                    <div id="modal-row-top" className="modal-row" onClick={selectingLang('en')}>English</div>
-                    <div className="modal-row" onClick={selectingLang('es')}>Español</div>
-                    <div className="modal-row" onClick={selectingLang('zh')}>中文</div>
+                <div className="language-selection-modal-holder">
+                    <div id="language-selection-modal-row-top" className="language-selection-modal-row" onClick={selectingLang('en')}>English</div>
+                    <div className="language-selection-modal-row" onClick={selectingLang('es')}>Español</div>
+                    <div className="language-selection-modal-row" onClick={selectingLang('zh')}>中文</div>
                 </div>
             </div>
         </div>

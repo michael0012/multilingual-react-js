@@ -1,5 +1,5 @@
-/* The Modal (background) */
-.modal {
+/* The language-selection-modal (background) */
+.language-selection-modal {
     display: flex; /* Hidden by default */
     position: fixed; /* Stay in place */
     justify-content: center;
@@ -7,15 +7,15 @@
     z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
-    width: 100vw; /* Full width */
-    height: 100vh; /* Full height */
+    min-width: 100vw;
+    min-height: 100vh;
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
   
-  /* Modal Content */
-  .modal-content {
+  /* language-selection-modal Content */
+  .language-selection-modal-content {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -25,11 +25,11 @@
     border-radius: 4px;
   }
   
-  .modal-holder{
+  .language-selection-modal-holder{
       padding: 40px 10px;
       padding-top: 5px;
   }
-  .modal-row{
+  .language-selection-modal-row{
       text-align:center;
       padding: 30px 5px;
       border: black solid 1px;
@@ -37,10 +37,10 @@
       font-size: 24px;
       font-weight: 700;
     }
-    #modal-row-top{
+    #language-selection-modal-row-top{
         border-top: black solid 1px;
     }
-  .modal-row:hover{
+  .language-selection-modal-row:hover{
       background-color: lightgray;
       cursor: pointer;
   }

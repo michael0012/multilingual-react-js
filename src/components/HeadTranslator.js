@@ -9,6 +9,7 @@ let HeadTranslator = (props) => {
         <Helmet>
             <html lang={props.language} amp />
             <meta name={t("description")} content={t("This is a Multilingual website using react-dom-router, react-redux and i18n")}/>
+            <meta http-equiv="content-language" content={props.language} />
             <title>{t('Multilingual React App')}</title>
         </Helmet>
     );

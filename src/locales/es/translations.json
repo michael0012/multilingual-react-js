@@ -1,4 +1,6 @@
 {
+    "404-error": "No parece haber nada aquí...",
+    "Language": "Idioma",
     "Welcome to React": "Bienvenido a React y react-i18next",
     "Welcome to Other thing...": "Bienvenido a Otra cosa ...",
     "Next Page": "Siguiente página",

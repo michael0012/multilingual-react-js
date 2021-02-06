@@ -1,4 +1,6 @@
 {
+    "404-error": "这里似乎什么都没有...",
+    "Language": "语言",
     "Welcome to React": "欢迎来到React",
     "Welcome to Other thing...": "欢迎来到其他事物...",
     "Next Page": "下一页",

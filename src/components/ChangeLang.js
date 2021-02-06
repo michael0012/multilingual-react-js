@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-//import i18n, { languages } from '../i18n';
+import { useTranslation } from 'react-i18next';
+import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from '@material-ui/core/IconButton';
 import LanguageOutlinedIcon from '@material-ui/icons/LanguageOutlined';
 import { CHANGE_LANG } from '../reducers/language';
@@ -14,13 +15,16 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 }
 
 let ChangeLang = (props) => {
+    const { t } = useTranslation();
     if(!props.selected)
         return null;
     return (
         <div style={{right: '10px', bottom: '10px', position: 'fixed', zIndex: '1', }}>
-            <IconButton style={{display: 'block'}} onClick={props.changeLang}>
-                <LanguageOutlinedIcon fontSize="large"/>
-            </IconButton>
+            <Tooltip title={t('Language')}>
+                <IconButton style={{display: 'block'}} onClick={props.changeLang}>
+                    <LanguageOutlinedIcon fontSize="large"/>
+                </IconButton>
+            </Tooltip>
         </div>
     );
 }

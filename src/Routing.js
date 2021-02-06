@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from 'react-redux';
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import i18n, { languages } from './i18n'; // correct import statement for i18n
 import SelectLang from './components/SelectLang';
 import { SET_LANG } from './reducers/language';
+import NotFound from './screens/NotFound';
 import Welcome from './screens/Welcome';
 import Otherpage from './screens/Otherpage';
 
@@ -36,13 +37,19 @@ let Routing = (props) => {
     return (
       <React.Fragment>
         {selectingLang && <SelectLang/>}
-        <Route exact path="/" component={Welcome}/>
-        <Route exact path="/:lang([a-z]{2})/" component={Welcome}/>
-        {
-            // the two routes above should have the same component
-            // the routes below must have paths that start with /:lang([a-z]{2})/ inorder for template to work.
-        }
-        <Route exact path="/:lang([a-z]{2})/otherthing" component={Otherpage} />
+        <Switch>
+          <Route exact path="/" component={Welcome}/>
+          <Route exact path="/:lang([a-z]{2})/" component={Welcome}/>
+          {
+              // the two routes above should have the same component
+              // the routes below must have paths that start with /:lang([a-z]{2})/ inorder for template to work.
+          }
+          <Route exact path="/:lang([a-z]{2})/otherthing" component={Otherpage} />
+          {
+            // 404 error page below
+          }
+          <Route component={NotFound}/>
+        </Switch>
       </React.Fragment>
     );
     

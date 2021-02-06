@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import i18n, { languages } from '../i18n';
 import { SELECTING } from '../reducers/language'; 
+import Paper from '@material-ui/core/Paper';
 import './SelectLang.css'
 
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -61,14 +62,14 @@ const SelectLang = (props) => {
 
     return(
         <div className="language-selection-modal">
-            <div className="language-selection-modal-content">
+            <Paper className="language-selection-modal-content" elevation={3}>
                 <h1 className="fade-out" onAnimationIteration={endOfLoop} style={{textAlign: "center", height: 60}}>{selectLanguages[state.titleIndex]}</h1>
                 <div className="language-selection-modal-holder">
                     <div id="language-selection-modal-row-top" className="language-selection-modal-row" onClick={selectingLang('en')}>English</div>
                     <div className="language-selection-modal-row" onClick={selectingLang('es')}>Español</div>
                     <div className="language-selection-modal-row" onClick={selectingLang('zh')}>中文</div>
                 </div>
-            </div>
+            </Paper>
         </div>
     );
 }

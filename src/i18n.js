@@ -6,7 +6,7 @@ import translationZN from './locales/zh/translations.json';
 
 // the translations
 // (tip move them in a JSON file and import them)
-export const languages = ['en', 'es', 'zh'];
+export const LANGUAGES = ['en', 'es', 'zh'];
 const resources = {
   en: {
     translation: translationEN
@@ -24,6 +24,10 @@ i18n
   .init({
     resources,
     lng: "en",
+    fallbackLng: "en",
+    whitelist: LANGUAGES,
+    nonExplicitWhitelist: true, // 'en-US' becomes 'en'
+    cleanCode: true, // auto-lowercase lang codes
     keySeparator: false, // we do not use keys in form messages.welcome
     interpolation: {
       escapeValue: false // react already safes from xss

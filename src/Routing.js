@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import { Route, Switch } from "react-router-dom";
-import i18n, { languages } from './i18n'; // correct import statement for i18n
+import i18n, { LANGUAGES } from './i18n'; // correct import statement for i18n
 import SelectLang from './components/SelectLang';
 import { SET_LANG } from './reducers/language';
 import NotFound from './screens/NotFound';
@@ -24,13 +24,14 @@ let Routing = (props) => {
     const lang = window.location.pathname.split('/')[1];
     let selectingLang = false;
     //console.log({language: props.language, selected: props.selected});
-    if(!languages.includes(lang) || !props.selected){
+    // TODO: add useEffect to start of function component
+    if(!LANGUAGES.includes(lang) || !props.selected){
       selectingLang = true;
     }
-    if( languages.includes(lang) && props.language !== lang ){
+    if( LANGUAGES.includes(lang) && props.language !== lang ){
         props.setLang(lang);
     }
-    if( languages.includes(lang) && i18n.language !== lang ){
+    if( LANGUAGES.includes(lang) && i18n.language !== lang ){
         i18n.changeLanguage(lang);
     }
   
@@ -57,5 +58,3 @@ let Routing = (props) => {
   const mapStateToProps = state => ({ language: state.language.language, selected: state.language.selected })
   
   export default connect(mapStateToProps, mapDispatchToProps)(Routing);
-
-  //export default Routing;

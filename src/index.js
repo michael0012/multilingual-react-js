@@ -1,23 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CssBaseline from "@material-ui/core/CssBaseline";
-import { Provider } from "react-redux";
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@material-ui/core/styles';
+import { Provider } from 'react-redux';
 import App from './App';
 import './i18n';
-import store from "./store";
+import theme from './theme';
+import store from './store';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 // import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Fragment>
     <Provider store={store}>
-      <React.Fragment>
-        <CssBaseline/>
-        <App />
-      </React.Fragment>
+      <ThemeProvider theme={theme}>
+        <React.Fragment>
+          <CssBaseline/>
+          <App />
+        </React.Fragment>
+      </ThemeProvider>
     </Provider>
-  </React.StrictMode>,
+  </React.Fragment>,
   document.getElementById('root')
 );
 

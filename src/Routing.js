@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux';
 import { Route, Switch } from "react-router-dom";
 import i18n, { LANGUAGES } from './i18n'; // correct import statement for i18n
@@ -22,22 +22,24 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 let Routing = (props) => {
     const lang = window.location.pathname.split('/')[1];
-    let selectingLang = false;
-    //console.log({language: props.language, selected: props.selected});
-    // TODO: add useEffect to start of function component
-    if(!LANGUAGES.includes(lang) || !props.selected){
-      selectingLang = true;
-    }
-    if( LANGUAGES.includes(lang) && props.language !== lang ){
+    const [state, setState] = useState({selectingLang: false});
+    useEffect(() => {
+      if(!LANGUAGES.includes(lang) || !props.selected){
+        setState(state => ({...state, selectingLang: true}));
+      }else{
+        setState(state => ({...state, selectingLang: false}));
+      }
+      if( LANGUAGES.includes(lang) && props.language !== lang ){
         props.setLang(lang);
-    }
-    if( LANGUAGES.includes(lang) && i18n.language !== lang ){
+      }
+      if( LANGUAGES.includes(lang) && i18n.language !== lang ){
         i18n.changeLanguage(lang);
-    }
-  
+      }
+      
+    },[props, lang, state.selectingLang]);
     return (
       <React.Fragment>
-        {selectingLang && <SelectLang/>}
+        {state.selectingLang && <SelectLang/>}
         <Switch>
           <Route exact path="/" component={Welcome}/>
           <Route exact path="/:lang([a-z]{2})/" component={Welcome}/>

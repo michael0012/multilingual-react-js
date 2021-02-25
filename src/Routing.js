@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux';
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import i18n, { LANGUAGES } from './i18n'; // correct import statement for i18n
 import SelectLang from './components/SelectLang';
 import { SET_LANG } from './reducers/language';
@@ -21,7 +21,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 
 let Routing = (props) => {
-    const lang = window.location.pathname.split('/')[1];
+    const location = useLocation();
+    const lang = location.pathname.split('/')[1];
     const [state, setState] = useState({selectingLang: false});
     useEffect(() => {
       if(!LANGUAGES.includes(lang) || !props.selected){
@@ -36,7 +37,7 @@ let Routing = (props) => {
         i18n.changeLanguage(lang);
       }
       
-    },[props, lang, state.selectingLang]);
+    },[props, lang]);
     return (
       <React.Fragment>
         {state.selectingLang && <SelectLang/>}

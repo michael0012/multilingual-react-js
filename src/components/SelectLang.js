@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import i18n, { LANGUAGES } from '../i18n';
 import { SELECTING } from '../reducers/language';
 import { makeStyles } from '@material-ui/core/styles';
@@ -78,6 +78,7 @@ const useStyles = makeStyles(( theme ) => ({
 const SelectLang = (props) => {
 
     let history = useHistory();
+    const location = useLocation();
     const classes = useStyles();
     const selectLanguages = [
         "Select Language",
@@ -110,7 +111,7 @@ const SelectLang = (props) => {
     const selectingLang = (lang) => ( () => {
         props.changeLang(lang);
         i18n.changeLanguage(lang);
-        let langPath = window.location.pathname.split('/');
+        let langPath = location.pathname.split('/');
         if (LANGUAGES.includes(langPath[1])){
             langPath[1] = lang;
         }else{
@@ -120,7 +121,7 @@ const SelectLang = (props) => {
         }
         const pathRoute = langPath.join('/');
         setState({...state, fadeIn: false});
-        history.push(pathRoute);
+        history.push({ pathname: pathRoute, search: location.search, hash: location.hash});
     });
 
     return(
